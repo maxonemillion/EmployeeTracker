@@ -18,7 +18,7 @@ connection.connect(function(err) {
 
 function runInquiry() {
     inquirer.prompt({
-        name: "action",
+        name: "directory",
         type: "list",
         message: "What would you like to do?",
         choices: [
@@ -31,5 +31,24 @@ function runInquiry() {
             "Update role",
             "Exit",
         ]
+    })
+    .then(function(answer){
+        if (answer.directory === "View departments") {
+            pullDepartments();
+        } else if (answer.directory === "View roles") {
+            pullRoles();
+        } else if (answer.directory === "View employees") {
+            pullEmployees();
+        } else if (answer.directory === "Add department") {
+            addDepartment();
+        } else if (answer.directory === "Add role") {
+            addRole();
+        } else if (answer.directory === "Add employee") {
+            addEmployee();
+        } else if (answer.directory === "Update role") {
+            updateRole();
+        } else if (answer.directory === "Exit") {
+            exit();
+        }
     })
 }
