@@ -1,13 +1,13 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
-const console = require('console.table');
+const consoletable = require('console.table');
 
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "",
-    database: "employees_db"
+    password: "Bugs1447!",
+    database: "employee_db"
 });
 
 connection.connect(function(err) {
@@ -50,5 +50,74 @@ function runInquiry() {
         } else if (answer.directory === "Exit") {
             exit();
         }
-    })
-}
+    });
+};
+
+function pullDepartments() {
+    connection.query("SELECT * FROM department", function (err, res) {
+        if (err) throw err;
+        const table = consoletable.getTable(res);
+        console.log(table);
+        runInquiry();
+    });
+};
+
+function pullRoles() {
+    connection.query("SELECT * FROM role", function (err, res) {
+        if (err) throw err;
+        const table = consoletable.getTable(res);
+        console.log(table);
+        runInquiry();
+    });
+};
+
+function pullEmployees() {
+    connection.query("SELECT * FROM employee", function (err, res) {
+        if (err) throw err;
+        const table = consoletable.getTable(res);
+        console.log(table);
+        runInquiry();
+    });
+};
+
+function addDepartment() {
+    inquirer.prompt({
+        name: "department",
+        type: "input",
+        message: "Department name: "
+    }).then(function (res) {
+        connection.query(`INSERT INTO department (name) VALUES ('${res.department}')`, function (err, res) {
+            if (err) throw err;
+            console.log("department list updated");
+            runInquiry();
+        });
+    });
+};
+
+function addRole() {
+    inquirer.prompt({
+        name: "roleTitle",
+        type: "input",
+        message: "Department name: "
+    }).then(function (res) {
+        connection.query(`INSERT INTO department (name) VALUES ('${res.department}')`, function (err, res) {
+            if (err) throw err;
+            console.log("department list updated");
+            runInquiry();
+        });
+    });
+};
+
+function addEmployee() {
+    inquirer.prompt({
+        name: "department",
+        type: "input",
+        message: "Department name: "
+    }).then(function (res) {
+        connection.query(`INSERT INTO department (name) VALUES ('${res.department}')`, function (err, res) {
+            if (err) throw err;
+            console.log("department list updated");
+            runInquiry();
+        });
+    });
+};
