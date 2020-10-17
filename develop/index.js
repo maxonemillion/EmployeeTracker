@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "Bugs1447!",
+    password: "",
     database: "employee_db"
 });
 
@@ -95,11 +95,30 @@ function addDepartment() {
 };
 
 function addRole() {
-    inquirer.prompt({
+    inquirer.prompt([
+    {
         name: "roleTitle",
         type: "input",
-        message: "Department name: "
-    }).then(function (res) {
+        message: "Title: ",
+    },
+    {
+        name: "rolePay",
+        type: "input",
+        message: "Salary: "
+    },
+    {
+        name: "inDepartment",
+        type: "list",
+        message: "Department: ",
+        choices: function () {
+            var choicelist = [];
+            results.forEach(entry => {
+                
+            });
+        }
+    }
+}
+    )].then(function (res) {
         connection.query(`INSERT INTO department (name) VALUES ('${res.department}')`, function (err, res) {
             if (err) throw err;
             console.log("department list updated");
