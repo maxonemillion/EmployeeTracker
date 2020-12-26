@@ -18,7 +18,7 @@ This command-line application allows the user to:
 ### SCREENSHOT:
 ![project screenshot](develop/images/screenshot.png)
 
-### INFORMATION:L
+### INFORMATION:
 [Here](https://github.com/maxonemillion/EmployeeTracker "Link to github repository") is the Github repository for this project.
 
 ### CONTACT:
