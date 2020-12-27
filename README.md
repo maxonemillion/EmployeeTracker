@@ -19,7 +19,7 @@ This command-line application allows the user to:
 ![project screenshot](develop/images/screenshot.png)
 
 ### INFORMATION:
-[Here](https://github.com/maxonemillion/EmployeeTracker "Link to github repository") is the Github repository for this project. [Here](<insert link to video here> "Link to video showing how to use this app") is a short video showing how to use this application.
+[Here](https://github.com/maxonemillion/EmployeeTracker "Link to github repository") is the Github repository for this project.
 
 ### CONTACT:
 * max.daniel@utah.edu
